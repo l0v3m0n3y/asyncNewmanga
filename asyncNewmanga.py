@@ -30,7 +30,7 @@ class asyncNewmanga():
 	async def register(self,login,email,password):
 	    data={"login":login,"email":email,"password":password}
 	    async with self.session.post(f'{self.api}/register',json=data,headers=self.headers) as req:
-	    	return await req
+	    	return req.text
 	async def forgot_password(self,credentials):
 	    data={"credentials":credentials}
 	    async with self.session.post(f'{self.api}/forgot_password',json=data,headers=self.headers) as req:
